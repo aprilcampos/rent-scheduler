@@ -14,7 +14,24 @@ class RentScheduler
     @rent_end_date = Date.parse(rent[:rent_end_date])
   end
 
-
+  def generate_dates
+    interval = FREQUENCIES[@rent_frequency]
+  
+    payment_dates = []
+  
+    date = @rent_start_date
+  
+    while date < @rent_end_date
+      payment_dates << date.to_s
+  
+      if interval == :monthly
+        date = date.next_month
+      else
+        date = date + interval
+      end
+    end
+  
+    payment_dates
+  end
 
 end
-
