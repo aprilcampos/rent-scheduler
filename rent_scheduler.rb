@@ -7,11 +7,18 @@ class RentScheduler
     'monthly' => :monthly
   }
 
-  def initialize(rent)
+  def initialize(rent, rent_changes = [])
     @rent_amount = rent[:rent_amount]
     @rent_frequency = rent[:rent_frequency]
     @rent_start_date = Date.parse(rent[:rent_start_date])
     @rent_end_date = Date.parse(rent[:rent_end_date])
+
+    @rent_changes = rent_changes.map do |rc|
+      {
+        amount: rc[:rent_amount],
+        effective_date: Date.parse(rc[:effective_date])
+      }
+    end
   end
 
   def generate_dates
