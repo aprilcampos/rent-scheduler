@@ -4,7 +4,7 @@ class RentScheduler
   FREQUENCIES = {
     'weekly' => 7,
     'fortnightly' => 14,
-    'monthly' => 30
+    'monthly' => :monthly
   }
 
   def initialize(rent)
