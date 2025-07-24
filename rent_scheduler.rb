@@ -8,8 +8,11 @@ class RentScheduler
   }
 
   def initialize(rent)
-    @rent = rent
+    @rent_amount = rent[:rent_amount]
+    @rent_frequency = rent[:rent_frequency]
   end
+
+
 
 end
 
