@@ -13,4 +13,17 @@ rent_changes = [
 ]
 
 scheduler = RentScheduler.new(rent, rent_changes)
-pp scheduler.generate_rent_schedule
+
+schedule = scheduler.generate_rent_schedule
+
+puts "payment_dates = ["
+schedule.each_with_index do |payment, i|
+  if i == schedule.size - 1
+    comma = ""
+  else
+    comma = ","
+  end
+
+  puts "  { date: \"#{payment[:date]}\", amount: #{payment[:amount]} }#{comma}"
+end
+puts "]"
