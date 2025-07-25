@@ -7,6 +7,12 @@ class RentScheduler
     'monthly' => :monthly
   }
 
+  PROCESSING_DAYS = {
+    'credit_card' => 2,
+    'bank_transfer' => 3,
+    'instant' => 0
+  }
+
   def initialize(rent, rent_changes = [])
     @rent_amount = rent[:rent_amount]
     @rent_frequency = rent[:rent_frequency]
