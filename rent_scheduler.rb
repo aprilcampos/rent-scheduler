@@ -25,6 +25,7 @@ class RentScheduler
         effective_date: Date.parse(rc[:effective_date])
       }
     end
+    @payment_method = rent[:payment_method]
   end
 
   def generate_dates
