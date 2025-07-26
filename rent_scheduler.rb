@@ -47,34 +47,29 @@ class RentScheduler
   end
 
   def generate_rent_schedule
-    interval = FREQUENCIES[@rent_frequency]
-
     schedule = []
-  
-    current_amount = @rent_amount
-  
     date = @rent_start_date
-  
+    interval = FREQUENCIES[@rent_frequency]
+    amount = @rent_amount
     change_index = 0
-  
+
     while date < @rent_end_date
-      next_change = @rent_changes[change_index]
-  
-      if next_change && date >= next_change[:effective_date]
-        current_amount = next_change[:amount]
+      if @rent_changes[change_index] && date >= @rent_changes[change_index][:effective_date]
+        amount = @rent_changes[change_index][:amount]
         change_index += 1
       end
-  
-      schedule << { date: date.to_s, amount: current_amount }
-  
+
+      schedule << { date: date.to_s, amount: amount }
+
       if interval == :monthly
         date = date.next_month
       else
         date = date + interval
       end
     end
-  
+
     schedule
+    
   end
 
   def generate_payment_schedule
