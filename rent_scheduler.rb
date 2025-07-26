@@ -59,7 +59,7 @@ class RentScheduler
         change_index += 1
       end
 
-      schedule << { date: date.to_s, amount: amount }
+      schedule << { date: date.to_s, amount: "₱#{amount}" }
 
       if interval == :monthly
         date = date.next_month
@@ -94,7 +94,7 @@ class RentScheduler
 
       schedule << {
         payment_date: payment_date.to_s,
-        amount: amount,
+        amount: "₱#{amount}",
         method: @payment_method
       }
 
