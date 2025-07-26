@@ -29,23 +29,21 @@ class RentScheduler
   end
 
   def generate_dates
-    interval = FREQUENCIES[@rent_frequency]
-  
-    payment_dates = []
-  
+    schedule = []
     date = @rent_start_date
-  
+    interval = FREQUENCIES[@rent_frequency]
+
     while date < @rent_end_date
-      payment_dates << date.to_s
-  
+      schedule << date.to_s
+
       if interval == :monthly
         date = date.next_month
       else
         date = date + interval
       end
     end
-  
-    payment_dates
+
+    schedule
   end
 
   def generate_rent_schedule
