@@ -18,7 +18,6 @@ class RentScheduler
     @rent_frequency = rent[:rent_frequency]
     @rent_start_date = Date.parse(rent[:rent_start_date])
     @rent_end_date = Date.parse(rent[:rent_end_date])
-    @payment_method = rent[:payment_method]
 
     @rent_changes = rent_changes.map do |change|
       {
@@ -26,6 +25,8 @@ class RentScheduler
         effective_date: Date.parse(change[:effective_date])
       }
     end
+
+    @payment_method = rent[:payment_method]
   end
 
   def generate_dates
