@@ -1,5 +1,7 @@
 # Coding Test for handling Rent Payment Schedule, Rent Changes and Incorporated Different Payment Methods
 
+Note: I purposely did not used RoR framework and only used plain Ruby to follow the instruction stated from the test as Ruby Developer.
+
 To run this, please make sure that:
 - Ruby is installed to your local machine.
 - Open your Preferred IDE or text editor (e.g., VS Code, Sublime, Vim)
